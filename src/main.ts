@@ -6,61 +6,65 @@ canvas.height = window.innerHeight;
 canvas.style.background = 'black';
 document.body.appendChild(canvas);
 
-//function to move the shooter
-class moveShooter {
-    x: string;
-    y: string;
 
-    constructor(x: string, y: string) {
+
+
+class Shooter {
+
+    constructor(x: number, y: number) {
         this.x = x;
         this.y = y;
     }
-}
 
-let move = () => {
-    document.addEventListener('keydown', (e) => {
-        switch (e.key) {
-            case 'ArrowUp':
-                console.log('Clicked Up');
-                break;
-            case 'ArrowDown':
-                console.log('Clicked Down');
-                break;
+    x: number;
+    y: number;
+
+
+    createImage() {
+
+        let right = 10, left = 10;
+
+        const img = new Image;
+        img.addEventListener('load', () => {
+            ctx?.drawImage(img, right * this.x, left * this.y);
+        })
+        img.src = 'public/shooter.png'
+
+
+        document.addEventListener('keydown' , (e) => {
+         switch (e.key) {
+            //Move up
             case 'ArrowRight':
-                console.log('Clicked Right');
+                this.x++;
                 break;
+
             case 'ArrowLeft':
-                console.log('Clicked Left');
+                this.y++;
                 break;
-                
-                
+         
             default:
                 break;
-        }
-    })
+         }
+        })
+    }
+
+    //This moves the shooter to left & right positions (x and y)
+    moveShooter() {
+
+    }
+
+    //This releases bullets upon Arrow movement (For loop)
+    releaseBullets() {
+            let bullet = new Image();
+            bullet.addEventListener('load' , ()=> {
+            ctx?.drawImage(bullet , 10, 10)
+            });
+    }
+
+    //Checks collition of the invader and shooter
+    checkCollition() {
+
+    }
 }
-
-move();
-
-
-
-
-//Invader
-const invader = new Image();
-invader.addEventListener('load', () => {
-    ctx?.drawImage(invader, 10, 10);
-});
-invader.src = '/public/invader.png'
-
-
-//Shooter
-const shooter = new Image();
-shooter.addEventListener('load', () => {
-    ctx?.drawImage(shooter, innerWidth / 2, innerHeight / 1.1);
-});
-shooter.src = '/public/shooter.png'
-
-
-
 
 
