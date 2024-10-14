@@ -1,0 +1,11 @@
+{
+  "name": "space-shooter",
+  "version": "1.0.0",
+  "description": "Space Invader Canvas Game",
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Uti Favour",
+  "license": "ISC"
+}
