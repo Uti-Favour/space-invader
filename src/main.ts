@@ -62,7 +62,7 @@ class Shooter {
     releaseBullets() {
         let bullet = new Image();
         bullet.addEventListener('load', () => {
-            ctx?.drawImage(bullet, this.x, this.y - 40, 30, 30)
+            ctx?.drawImage(bullet, this.x, this.y - 40, 15, 15)
         });
         bullet.src = 'public/bullets.png'
     }
@@ -79,6 +79,9 @@ shot.createImage();
 shot.releaseBullets();
 
 
+//If i can represent the invaders as an array, this will enable me create multiple images, loop over it and add the collition functionality based on hit.
+
+
 //Logic for 
 class Invader {
     x: number;
@@ -93,10 +96,9 @@ class Invader {
         setInterval (() => {
          let invader = new Image();
          invader.addEventListener('load' , () => {
-            ctx?.drawImage(invader , this.x, this.y++)
+            ctx?.drawImage(invader , this.x, this.y)
          })
         invader.src = '/public/invader.png'
-         console.log('Hello World');
         } , timeInterval);
     }
 
